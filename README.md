@@ -74,18 +74,7 @@ java -jar target/flink-cc-table-api-1.0.0.jar
 - Uses `ConfluentSettings.fromResource()` for cloud configuration
 - Connects directly to Confluent Cloud Flink compute pools
 - Proper authentication and catalog/database management
-
-### 2. Managed Table Operations
-- **Table Discovery**: Lists existing tables in the environment
-- **Dynamic Table Creation**: Creates managed tables with `ConfluentTableDescriptor`
-- **Schema Definition**: Defines structured schemas with typed columns
-- **Partitioning Strategy**: Configures table distribution across Kafka partitions
-- **Format Configuration**: Sets up JSON with Schema Registry integration
-
-### 3. Advanced Table Management
-- **Conditional Creation**: Checks table existence before creation
-- **Schema Evolution**: Adds metadata columns dynamically using ALTER TABLE
-- **Error Handling**: Graceful exception handling for cloud operations
+- Conditional Table creation/update
 
 ## What the Demo Does
 
