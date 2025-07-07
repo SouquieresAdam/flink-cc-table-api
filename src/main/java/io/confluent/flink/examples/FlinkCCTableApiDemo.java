@@ -93,9 +93,17 @@ public class FlinkCCTableApiDemo {
                                 .build());
             }
 
+            System.out.println("Available columns in "+TARGET_TABLE1);
+
+            env.from(TARGET_TABLE1).getResolvedSchema().getColumns().forEach(System.out::println);
+
 
             var newColExists = env.from(TARGET_TABLE1).getResolvedSchema().getColumns()
                     .stream().filter(col -> "headers".equals(col.getName())).findAny();
+
+
+
+
             if(newColExists.isEmpty()){
                 env.executeSql("ALTER TABLE "+TARGET_TABLE1+" ADD headers MAP<BYTES, BYTES> METADATA").await();
                 System.out.println("Header column added to table "+TARGET_TABLE1);
